@@ -1,0 +1,57 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Intake Out"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Start Right To Outpost"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "race",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Shoot And Wiggle"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 15.0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Shoot And Wiggle"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Right Autons",
+  "choreoAuto": false
+}

@@ -1,0 +1,25 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 21.0
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Do Nothing Path"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Special Autons",
+  "choreoAuto": false
+}
