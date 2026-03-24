@@ -51,11 +51,11 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
   //Simple data class for the outputs of the Look up tables
   public record ShooterParams(double Rps, double hoodAngle, double timeOfFlight) {}
 
-  //the interpolating double maps for scoring and passing do not touch without mentor approval
+  //the interpolating double maps for scoring and passing do not touch 
   //distance, rps (motor land(rotations)), hood angle (motor land(rotations)), and time of flight (seconds)
   private static final InterpolatingDoubleTreeMap scoringMapShooter = new InterpolatingDoubleTreeMap();
   static {
-    scoringMapShooter.put(1.3, 17.0);//distance rps in rps
+    scoringMapShooter.put(1.0, 17.0);//distance rps in rps
     scoringMapShooter.put(2.3, 19.0);
     scoringMapShooter.put(2.8, 20.0);
     scoringMapShooter.put(3.3, 21.5);
@@ -69,7 +69,7 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
   }
   private static final InterpolatingDoubleTreeMap scoringMapHood = new InterpolatingDoubleTreeMap();
   static {
-    scoringMapHood.put(1.3, 0.0);//distance angle in rotations
+    scoringMapHood.put(1.0, 0.0);//distance angle in rotations
     scoringMapHood.put(2.3, 1.65);
     scoringMapHood.put(2.8, 2.5);
     scoringMapHood.put(3.3, 2.7);
@@ -83,17 +83,17 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
   }
   private static final InterpolatingDoubleTreeMap scoringMapTOF = new InterpolatingDoubleTreeMap();
   static {
-    scoringMapTOF.put(1.3, 0.0);//distance time of flight in seconds
-    scoringMapTOF.put(2.3, 1.0);
-    scoringMapTOF.put(2.8, 2.0);
-    scoringMapTOF.put(3.3, 3.0);
-    scoringMapTOF.put(3.8, 4.0);
-    scoringMapTOF.put(4.3, 5.0);
-    scoringMapTOF.put(4.8, 6.0);
-    scoringMapTOF.put(5.3, 7.0);
-    scoringMapTOF.put(5.7,8.0);
-    scoringMapTOF.put(7.0, 10.0);//passing point
-    scoringMapTOF.put(15.0, 10.0);//passing point
+    scoringMapTOF.put(1.0, .50);//distance time of flight in seconds
+    scoringMapTOF.put(2.3, .67);
+    scoringMapTOF.put(2.8, .73);
+    scoringMapTOF.put(3.3, .76);
+    scoringMapTOF.put(3.8, .82);
+    scoringMapTOF.put(4.3, .81);
+    scoringMapTOF.put(4.8, .87);
+    scoringMapTOF.put(5.3, .95);
+    scoringMapTOF.put(5.7, 1.0);
+    scoringMapTOF.put(7.0, 1.0);//passing point
+    scoringMapTOF.put(15.0, 1.0);//passing point
   }
 
   /** Creates a new DistanceAndAngleCalcSubsystem. */

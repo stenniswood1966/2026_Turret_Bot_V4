@@ -353,7 +353,7 @@ public class RobotContainer {
 
     private double getCalculatedMaxSpeed(){
         if (joystick.rightTrigger().getAsBoolean()) {
-            return MaxSpeed/5;
+            return MaxSpeed/3;
         } else {
             return MaxSpeed;
         }
