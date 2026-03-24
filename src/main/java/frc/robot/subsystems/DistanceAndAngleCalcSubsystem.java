@@ -33,7 +33,7 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
 
   //calculator static variables
   SwerveDriveState state;
-  double latencyCompensation = .02;//is in seconds
+  double latencyCompensation = .04;//is in seconds
 
   double turretVectorDistance = constants.kg_TurretOffset.k_TurretOffsetPose2d.getTranslation().getDistance(new Translation2d(0,0));
   double turretVectorAngle = Math.atan2(constants.kg_TurretOffset.k_TurretOffsetPose2d.getY(), constants.kg_TurretOffset.k_TurretOffsetPose2d.getX());
@@ -65,7 +65,7 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
     scoringMapShooter.put(5.3, 29.75);
     scoringMapShooter.put(5.7, 30.0);
     scoringMapShooter.put(6.0, 30.0);//passing point
-    scoringMapShooter.put(15.0, 45.0);//passing point
+    scoringMapShooter.put(15.0, 40.0);//passing point
   }
   private static final InterpolatingDoubleTreeMap scoringMapHood = new InterpolatingDoubleTreeMap();
   static {
