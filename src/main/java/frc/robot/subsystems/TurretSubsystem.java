@@ -88,6 +88,8 @@ public class TurretSubsystem extends SubsystemBase {
     // periodic, run Motion Magi with slot 0 configs,
     if (!killFlag && !homeFlag && !lostPowerFlag) {
       motor1.setControl(mmReq.withPosition(targetpos).withSlot(0));
+    } else {
+      //System.out.println("The turret isnt updating!!!!!!!!!!!!!!!!!!");
     }
   }
 
@@ -110,7 +112,7 @@ public class TurretSubsystem extends SubsystemBase {
   public Trigger t_turretInRange(Double threshold){
     return new Trigger(() -> {
       //return motor1MotorPosition.isNear(Angle.ofRelativeUnits(mmReq.Position, Rotation), threshold);
-      return motor1.getClosedLoopError().getValueAsDouble() < threshold;
+      return Math.abs(motor1.getClosedLoopError().getValueAsDouble()) < threshold;
     });
   }
 

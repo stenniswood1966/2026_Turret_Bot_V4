@@ -58,8 +58,8 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
     scoringMapShooter.put(1.0, 17.0);//distance rps in rps
     scoringMapShooter.put(2.3, 19.0);
     scoringMapShooter.put(2.8, 20.0);
-    scoringMapShooter.put(3.3, 21.5);
-    scoringMapShooter.put(3.8, 23.5);
+    scoringMapShooter.put(3.3, 22.0);
+    scoringMapShooter.put(3.8, 24.0);
     scoringMapShooter.put(4.3, 25.5);
     scoringMapShooter.put(4.8, 29.0);
     scoringMapShooter.put(5.3, 29.75);
@@ -71,26 +71,26 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
   static {
     scoringMapHood.put(1.0, 0.0);//distance angle in rotations
     scoringMapHood.put(2.3, 1.65);
-    scoringMapHood.put(2.8, 2.5);
-    scoringMapHood.put(3.3, 2.7);
-    scoringMapHood.put(3.8, 2.7);
+    scoringMapHood.put(2.8, 2.3);
+    scoringMapHood.put(3.3, 2.3);
+    scoringMapHood.put(3.8, 2.3);
     scoringMapHood.put(4.3, 4.0);
-    scoringMapHood.put(4.8, 4.15);
-    scoringMapHood.put(5.3, 4.75);
+    scoringMapHood.put(4.8, 4.09);
+    scoringMapHood.put(5.3, 4.75);//start tuning here
     scoringMapHood.put(5.7,4.75);
     scoringMapHood.put(7.0, 7.0);//passing point
     scoringMapHood.put(15.0, 7.0);//passing point
   }
   private static final InterpolatingDoubleTreeMap scoringMapTOF = new InterpolatingDoubleTreeMap();
   static {
-    scoringMapTOF.put(1.0, .50);//distance time of flight in seconds
-    scoringMapTOF.put(2.3, .67);
-    scoringMapTOF.put(2.8, .73);
+    scoringMapTOF.put(1.0, .63);//distance time of flight in seconds
+    scoringMapTOF.put(2.3, .66);
+    scoringMapTOF.put(2.8, .67);
     scoringMapTOF.put(3.3, .76);
     scoringMapTOF.put(3.8, .82);
-    scoringMapTOF.put(4.3, .81);
-    scoringMapTOF.put(4.8, .87);
-    scoringMapTOF.put(5.3, .95);
+    scoringMapTOF.put(4.3, .83);
+    scoringMapTOF.put(4.8, .75);
+    scoringMapTOF.put(5.3, .87);
     scoringMapTOF.put(5.7, 1.0);
     scoringMapTOF.put(7.0, 1.0);//passing point
     scoringMapTOF.put(15.0, 1.0);//passing point
