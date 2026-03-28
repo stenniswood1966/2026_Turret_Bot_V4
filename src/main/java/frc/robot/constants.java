@@ -184,7 +184,7 @@ public class constants {
         public static NeutralModeValue k_Motor1NeutralModeValue = NeutralModeValue.Brake;
         public static Boolean k_Motor1ForwardSoftLimitEnable = true;
         public static Boolean k_Motor1ReverseSoftLimitEnable = true;
-        public static double k_Motor1ForwardSoftLimitThreshold = 16.78;
+        public static double k_Motor1ForwardSoftLimitThreshold = 17.215820;//old intake was 16.78
         public static double k_Motor1ReverseSoftLimitThreshold = 0;
 
         //amp limits
@@ -211,7 +211,7 @@ public class constants {
 
         //Motion Magic Setpoints
         public static double k_InPosition = 0;
-        public static double k_OutPosition = 16.7;
+        public static double k_OutPosition = 17.215820;// old intake was 16.7
         public static double k_WigglePosition = 5;//was 8
 
         //threshold
@@ -224,7 +224,7 @@ public class constants {
     //Settings for the IntakeSubsystem
     public class kg_IntakeSubsystem{
         //Motor(s) Configs
-        public static int k_Motor1ID = 5;
+        public static int k_Motor1ID = 0;//was 5
         public static CANBus k_Motor1CANBus = new CANBus("rio");
         public static InvertedValue k_Motor1InvertedValue = InvertedValue.Clockwise_Positive;
         public static NeutralModeValue k_Motor1NeutralModeValue = NeutralModeValue.Brake;

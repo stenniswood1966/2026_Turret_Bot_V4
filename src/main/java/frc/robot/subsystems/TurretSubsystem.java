@@ -24,7 +24,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class TurretSubsystem extends SubsystemBase {
   private static TalonFX motor1 = new TalonFX(constants.kg_TurretSubsystem.k_Motor1ID, constants.kg_TurretSubsystem.k_Motor1CANBus);
-  MotionMagicVoltage mmReq = new MotionMagicVoltage(0);
+  private MotionMagicVoltage mmReq = new MotionMagicVoltage(0);
 
   private final StatusSignal<Angle> motor1MotorPosition= motor1.getPosition(false);
   private static Boolean homeFlag = true;

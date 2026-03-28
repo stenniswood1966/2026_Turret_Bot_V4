@@ -76,7 +76,7 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
     scoringMapHood.put(3.8, 2.3);
     scoringMapHood.put(4.3, 4.0);
     scoringMapHood.put(4.8, 4.09);
-    scoringMapHood.put(5.3, 4.75);//start tuning here
+    scoringMapHood.put(5.3, 4.5);
     scoringMapHood.put(5.7,4.75);
     scoringMapHood.put(7.0, 7.0);//passing point
     scoringMapHood.put(15.0, 7.0);//passing point
@@ -90,7 +90,7 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
     scoringMapTOF.put(3.8, .82);
     scoringMapTOF.put(4.3, .83);
     scoringMapTOF.put(4.8, .75);
-    scoringMapTOF.put(5.3, .87);
+    scoringMapTOF.put(5.3, .87);//start tuning here
     scoringMapTOF.put(5.7, 1.0);
     scoringMapTOF.put(7.0, 1.0);//passing point
     scoringMapTOF.put(15.0, 1.0);//passing point
@@ -233,7 +233,7 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
   //accepts degrees works in rotations
   //this mess programmically takes in a angle in degrees converts that to motor rotations and then calculates out a motor rotation
   //that is within the soft limits. This works because the turret has a continous range of 360 so their is no dead zone
-  private double calcTurretAngle(double outputAngle){
+  public double calcTurretAngle(double outputAngle){
     //converting to motor rotations based off of the gear ratio of the turret
     this.givenTarget = outputAngle * this.gearRatioTurret / 360;
     this.modifier = this.gearRatioTurret;
@@ -256,7 +256,7 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
       }
 
     }
-
+    
     return potentialTarget;
   }
 

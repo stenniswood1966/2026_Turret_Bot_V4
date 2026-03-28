@@ -195,7 +195,7 @@ public class RobotContainer {
                     .withName("Stop Shooter"))
                 );
         
-        //reverse pa/wooval %F
+        //reverse pa/wooval 
         joystick.b().whileTrue(pasubsystem.antiJamCommand()
             .withName("Reverse PA Adam"))
             .onFalse(pasubsystem.stopCommand());
@@ -209,32 +209,19 @@ public class RobotContainer {
                     .withName("Intake Stopping"));
             
         //intake out
-        Button_1.onChange(intakerotatesubsystem.setOutCommand()
+        Button_1.onTrue(intakerotatesubsystem.setOutCommand()
             .alongWith(Commands.waitUntil(t_intakeIsOut))
             .andThen(turretsubsystem.setHome(false))
             .alongWith(hoodsubsystem.setHome(false))
             .withName("Intake Out"));
             
         //intake in
-        Button_2.onChange(turretsubsystem.setHome(true)
+        Button_2.onTrue(turretsubsystem.setHome(true)
             .alongWith(hoodsubsystem.setHome(true))
             .alongWith(Commands.waitUntil(t_turretInRange))
             .andThen(intakerotatesubsystem.setInCommand())
             .withName("Intake In"));
-         
-        //climber buttons
-        Button_3.whileTrue(climbersubsystem.setUpPositionCommand()
-            .alongWith(turretsubsystem.setHome(true))
-            .alongWith(hoodsubsystem.setHome(true))
-            .alongWith(Commands.waitUntil(t_turretInRange))
-            .andThen(intakerotatesubsystem.setInCommand())
-            .withName("Climber Up"));
-        Button_4.whileTrue(climbersubsystem.setDownPositionCommand()
-            .alongWith(turretsubsystem.setHome(true))
-            .alongWith(hoodsubsystem.setHome(true))
-            .alongWith(Commands.waitUntil(t_turretInRange))
-            .andThen(intakerotatesubsystem.setInCommand())
-            .withName("Climber Down"));
+
 
         //Kill commands
         Button_5.onTrue(shootersubsystem.killCommand()
@@ -283,9 +270,7 @@ public class RobotContainer {
             .alongWith(intakesubsystem.stopCommand())
             .alongWith(pasubsystem.stopCommand()));
 
-        //home commands 
-        Button_18.whileTrue(climbersubsystem.homeCommand()
-            .withName("Home Climber"));
+        //home commands
         Button_19.whileTrue(hoodsubsystem.homeCommand()
             .withName("Home Hood"));
         Button_20.whileTrue(intakerotatesubsystem.homeCommand()
@@ -321,20 +306,6 @@ public class RobotContainer {
         NamedCommands.registerCommand("Intake On", Commands.waitUntil(t_intakeIsOut)
             .andThen(intakesubsystem.intakeCommand()));
         NamedCommands.registerCommand("Intake Stop", intakesubsystem.stopCommand());
-
-        //Climb commands
-        NamedCommands.registerCommand("Climber Up", climbersubsystem.setUpPositionCommand()
-            .alongWith(turretsubsystem.setHome(true))
-            .alongWith(hoodsubsystem.setHome(true))
-            .alongWith(Commands.waitUntil(t_turretInRange))
-            .andThen(intakerotatesubsystem.setInCommand())
-            .withName("Climber Up"));
-        NamedCommands.registerCommand("Climber Down", climbersubsystem.setDownPositionCommand()
-            .alongWith(turretsubsystem.setHome(true))
-            .alongWith(hoodsubsystem.setHome(true))
-            .alongWith(Commands.waitUntil(t_turretInRange))
-            .andThen(intakerotatesubsystem.setInCommand())
-            .withName("Climber Down"));
     }
 
     public Command getAutonomousCommand() {
