@@ -33,7 +33,7 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
 
   //calculator static variables
   SwerveDriveState state;
-  double latencyCompensation = .04;//is in seconds
+  double latencyCompensation = .02;//is in seconds
 
   double turretVectorDistance = constants.kg_TurretOffset.k_TurretOffsetPose2d.getTranslation().getDistance(new Translation2d(0,0));
   double turretVectorAngle = Math.atan2(constants.kg_TurretOffset.k_TurretOffsetPose2d.getY(), constants.kg_TurretOffset.k_TurretOffsetPose2d.getX());

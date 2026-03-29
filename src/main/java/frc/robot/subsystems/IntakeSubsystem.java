@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.DutyCycleOut;
+import com.ctre.phoenix6.controls.Follower;
 import com.ctre.phoenix6.hardware.TalonFX;
 import frc.robot.constants;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -15,6 +16,8 @@ public class IntakeSubsystem extends SubsystemBase {
 
   private Boolean killFlag = false;
   public static TalonFX motor1 = new TalonFX(constants.kg_IntakeSubsystem.k_Motor1ID,constants.kg_IntakeSubsystem.k_Motor1CANBus);
+  private static TalonFX motor2 = new TalonFX(constants.kg_IntakeSubsystem.k_Motor2ID, constants.kg_IntakeSubsystem.k_Motor2CANBus);
+
 
   /** Creates a new IntakeSubsystem. */
   public IntakeSubsystem() {
@@ -34,6 +37,23 @@ public class IntakeSubsystem extends SubsystemBase {
 
     motor1.getConfigurator().apply(fx_cfg, 0.050);
   
+    //config motor 2
+    var fx_cfg2 = new TalonFXConfiguration(); //creates a default TalonFX configuration
+
+    fx_cfg2.CurrentLimits.StatorCurrentLimit = constants.kg_IntakeSubsystem.k_Motor1StatorCurrentLimit;
+    fx_cfg2.CurrentLimits.StatorCurrentLimitEnable = constants.kg_IntakeSubsystem.k_Motor1StatorCurrentLimitEnable;
+    fx_cfg2.CurrentLimits.SupplyCurrentLimit = constants.kg_IntakeSubsystem.k_Motor1SupplyCurrentLimit;
+    fx_cfg2.CurrentLimits.SupplyCurrentLimitEnable = constants.kg_IntakeSubsystem.k_Motor1StatorCurrentLimitEnable;
+    fx_cfg2.CurrentLimits.SupplyCurrentLowerLimit = constants.kg_IntakeSubsystem.k_Motor1SupplyCurrentLowerLimit;
+    fx_cfg2.CurrentLimits.SupplyCurrentLowerTime = constants.kg_IntakeSubsystem.k_Motor1SupplyCurrentLowerTime;
+
+    //configuration for motor 2
+    fx_cfg2.MotorOutput.NeutralMode = constants.kg_IntakeSubsystem.k_Motor2NeutralModeValue;
+
+    motor2.getConfigurator().apply(fx_cfg2, 0.050);
+
+    motor2.setControl(new Follower(constants.kg_IntakeSubsystem.k_Motor1ID, constants.kg_IntakeSubsystem.k_Motor2AlignmentValue));
+
   }
 
   @Override

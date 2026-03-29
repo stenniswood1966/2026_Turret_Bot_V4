@@ -30,7 +30,6 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 
 import frc.robot.generated.TunerConstants;
-import frc.robot.subsystems.ClimberSubsystem;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.DistanceAndAngleCalcSubsystem;
 import frc.robot.subsystems.FeederSubsystem;
@@ -87,7 +86,6 @@ public class RobotContainer {
     public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
 
     //subsystems used
-    public final ClimberSubsystem climbersubsystem = new ClimberSubsystem();
     public final FeederSubsystem feedersubsystem = new FeederSubsystem();
     public final IntakeRotateSubsystem intakerotatesubsystem = new IntakeRotateSubsystem();
     public final IntakeSubsystem intakesubsystem = new IntakeSubsystem();
