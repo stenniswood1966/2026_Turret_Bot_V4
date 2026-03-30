@@ -242,7 +242,7 @@ public class constants {
         public static double k_Motor1SupplyCurrentLowerTime = 0;
         
         //Power Settings
-        public static double k_IntakePower = .85;//was .7
+        public static double k_IntakePower = .6;//was .85 old intake .85
         public static double k_AntiJamPower = -.75;
     }
 

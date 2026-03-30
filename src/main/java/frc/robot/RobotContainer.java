@@ -290,6 +290,11 @@ public class RobotContainer {
                         .alongWith(intakesubsystem.stopCommand())
                         .alongWith(intakerotatesubsystem.setOutCommand())
                     .withName("Stop Shooter")));
+        NamedCommands.registerCommand("Shoot", feedersubsystem.feedCommand()
+                    .alongWith(Commands.waitUntil(t_feederOn))
+                    .andThen(pasubsystem.feedCommand()
+                        .alongWith(intakesubsystem.intakeCommand())
+                    .withName("Shooting")));
 
         //intake commands
         NamedCommands.registerCommand("Intake Out", intakerotatesubsystem.setOutCommand().alongWith(Commands.waitUntil(t_intakeIsOut))

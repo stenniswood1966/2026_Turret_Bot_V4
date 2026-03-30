@@ -84,7 +84,7 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
   private static final InterpolatingDoubleTreeMap scoringMapTOF = new InterpolatingDoubleTreeMap();
   static {
     scoringMapTOF.put(1.0, .63);//distance time of flight in seconds
-    scoringMapTOF.put(2.3, .66);
+    scoringMapTOF.put(2.3, .57);
     scoringMapTOF.put(2.8, .67);
     scoringMapTOF.put(3.3, .76);
     scoringMapTOF.put(3.8, .82);
