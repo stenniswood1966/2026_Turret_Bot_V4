@@ -55,14 +55,14 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
   //distance, rps (motor land(rotations)), hood angle (motor land(rotations)), and time of flight (seconds)
   private static final InterpolatingDoubleTreeMap scoringMapShooter = new InterpolatingDoubleTreeMap();
   static {
-    scoringMapShooter.put(1.0, 17.0);//distance rps in rps
-    scoringMapShooter.put(2.3, 19.0);
-    scoringMapShooter.put(2.8, 20.0);
-    scoringMapShooter.put(3.3, 22.0);
-    scoringMapShooter.put(3.8, 24.0);
-    scoringMapShooter.put(4.3, 25.5);
-    scoringMapShooter.put(4.8, 29.0);
-    scoringMapShooter.put(5.3, 29.75);
+    scoringMapShooter.put(1.0, 17.0 +1);//distance rps in rps
+    scoringMapShooter.put(2.3, 19.0+1);
+    scoringMapShooter.put(2.8, 20.0+1);
+    scoringMapShooter.put(3.3, 22.0+1);
+    scoringMapShooter.put(3.8, 24.0+1);
+    scoringMapShooter.put(4.3, 25.5+1);
+    scoringMapShooter.put(4.8, 29.0+1);
+    scoringMapShooter.put(5.3, 29.75+-1);
     scoringMapShooter.put(5.7, 30.0);
     scoringMapShooter.put(6.0, 30.0);//passing point
     scoringMapShooter.put(15.0, 40.0);//passing point
@@ -76,21 +76,21 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
     scoringMapHood.put(3.8, 2.3);
     scoringMapHood.put(4.3, 4.0);
     scoringMapHood.put(4.8, 4.09);
-    scoringMapHood.put(5.3, 4.5);
+    scoringMapHood.put(5.3, 4.0);//was 4.5
     scoringMapHood.put(5.7,4.75);
     scoringMapHood.put(7.0, 7.0);//passing point
     scoringMapHood.put(15.0, 7.0);//passing point
   }
   private static final InterpolatingDoubleTreeMap scoringMapTOF = new InterpolatingDoubleTreeMap();
   static {
-    scoringMapTOF.put(1.0, .63);//distance time of flight in seconds
-    scoringMapTOF.put(2.3, .57);
-    scoringMapTOF.put(2.8, .67);
-    scoringMapTOF.put(3.3, .76);
-    scoringMapTOF.put(3.8, .82);
-    scoringMapTOF.put(4.3, .83);
-    scoringMapTOF.put(4.8, .75);
-    scoringMapTOF.put(5.3, .87);//start tuning here
+    scoringMapTOF.put(1.0, .63 +.05);//distance time of flight in seconds
+    scoringMapTOF.put(2.3, .57+.05);
+    scoringMapTOF.put(2.8, .67+.05);
+    scoringMapTOF.put(3.3, .76+.05);
+    scoringMapTOF.put(3.8, .82+.05);
+    scoringMapTOF.put(4.3, .83+.05);
+    scoringMapTOF.put(4.8, .75+.05);
+    scoringMapTOF.put(5.3, .87+.05);//start tuning here
     scoringMapTOF.put(5.7, 1.0);
     scoringMapTOF.put(7.0, 1.0);//passing point
     scoringMapTOF.put(15.0, 1.0);//passing point
@@ -129,7 +129,7 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
       .plus(constants.kg_TurretOffset.k_TurretOffsetPose2d.getTranslation());; 
 
     //grabbing where we want to shot to based on where we are on the field
-    Translation2d goalPosition = calcTarget(state.Pose).getTranslation();
+    Translation2d goalPosition = calcTargetOnlyHub(state.Pose).getTranslation();
 
     // 2. Get target vector 
     //based from turret position and in field relative
@@ -265,6 +265,23 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
   //this is borrowed from polar pilots :)
   public ChassisSpeeds toFieldRelative(ChassisSpeeds robotRelativeSpeeds, Rotation2d robotAngle) {
     return ChassisSpeeds.fromRobotRelativeSpeeds(robotRelativeSpeeds, robotAngle);
+  }
+
+    //this takes in the position of the robot and throws out a goal position based upon where on the field the robot thinks it is
+  //you have to take in account the alliance you are on since the origion is always from the blue alliance side
+  private Pose2d calcTargetOnlyHub(Pose2d robotPose){
+    Pose2d targetPose;
+
+    //figuring out where we should be targeting based on where we are on the field
+    if (isAllianceRed() == 1) {
+      //red alliance
+      targetPose = constants.kg_TargetsAndField.k_HubPose2dRed;
+    } else {
+      //blue alliance
+      targetPose = constants.kg_TargetsAndField.k_HubPose2dBlue;
+    }
+
+    return targetPose;
   }
 
   //this takes in the position of the robot and throws out a goal position based upon where on the field the robot thinks it is
