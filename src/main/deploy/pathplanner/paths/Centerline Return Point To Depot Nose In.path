@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.2239229671897287,
-        "y": 5.865820256776035
+        "x": 2.7077951807228917,
+        "y": 5.652301204819277
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.303469879518072,
-        "y": 6.034771084337349
+        "x": 1.6842225392296717,
+        "y": 5.930513552068473
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Centerline Return Point"
     },
     {
       "anchor": {
@@ -20,20 +20,15 @@
         "y": 5.943452211126962
       },
       "prevControl": {
-        "x": 1.9938464215653648,
-        "y": 5.895052577168848
+        "x": 1.3969843081312403,
+        "y": 5.6951234896791165
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "Depot Nose In"
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 0.5,
-      "rotationDegrees": -90.0
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -53,7 +48,7 @@
   "folder": "Left Paths",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 180.0
   },
   "useDefaultConstraints": true
 }

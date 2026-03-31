@@ -56,8 +56,8 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
   private static final InterpolatingDoubleTreeMap scoringMapShooter = new InterpolatingDoubleTreeMap();
   static {
     scoringMapShooter.put(1.0, 17.0 +1);//distance rps in rps
-    scoringMapShooter.put(2.3, 19.0+1);
-    scoringMapShooter.put(2.8, 20.0+1);
+    scoringMapShooter.put(2.3, 19.0+0);
+    scoringMapShooter.put(2.8, 20.0+0);
     scoringMapShooter.put(3.3, 22.0+1);
     scoringMapShooter.put(3.8, 24.0+1);
     scoringMapShooter.put(4.3, 25.5+1);

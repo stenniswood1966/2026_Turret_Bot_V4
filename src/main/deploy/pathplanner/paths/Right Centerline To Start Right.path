@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.756397590361445,
-        "y": 3.040578313253012
+        "x": 7.854746987951808,
+        "y": 3.0733614457831333
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.532493975903614,
-        "y": 2.210072289156626
+        "x": 6.630843373493977,
+        "y": 2.2428554216867473
       },
       "isLocked": false,
       "linkedName": "Right Centerline"
@@ -31,11 +31,11 @@
   "rotationTargets": [
     {
       "waypointRelativePos": 0.5,
-      "rotationDegrees": 135.0
+      "rotationDegrees": 45.0
     },
     {
       "waypointRelativePos": 0.6929637526652421,
-      "rotationDegrees": 135.0
+      "rotationDegrees": 45.0
     }
   ],
   "constraintZones": [],
@@ -51,7 +51,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": -135.0
   },
   "reversed": false,
   "folder": "Right Paths",

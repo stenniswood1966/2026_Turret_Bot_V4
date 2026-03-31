@@ -7,26 +7,44 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Start Trench To Outpost"
+            "pathName": "Start Left To Left Centerline"
           }
         },
         {
-          "type": "race",
+          "type": "path",
+          "data": {
+            "pathName": "Left Centerline To Start Left"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 2.0
+          }
+        },
+        {
+          "type": "parallel",
           "data": {
             "commands": [
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot And Wiggle"
+                  "name": "Shoot"
                 }
               },
               {
-                "type": "wait",
+                "type": "path",
                 "data": {
-                  "waitTime": 9.0
+                  "pathName": "Centerline Return Point To Depot Nose In"
                 }
               }
             ]
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 4.0
           }
         },
         {
@@ -38,7 +56,7 @@
       ]
     }
   },
-  "resetOdom": true,
-  "folder": "Special Autons",
+  "resetOdom": false,
+  "folder": "Left Autons",
   "choreoAuto": false
 }
