@@ -62,9 +62,9 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
     scoringMapShooter.put(3.8, 24.0+1);
     scoringMapShooter.put(4.3, 25.5+1);
     scoringMapShooter.put(4.8, 29.0+1);
-    scoringMapShooter.put(5.3, 29.75+-1);
-    scoringMapShooter.put(5.7, 30.0);
-    scoringMapShooter.put(6.0, 30.0);//passing point
+    scoringMapShooter.put(5.3, 29.75+1);
+    scoringMapShooter.put(5.7, 15.0);//passing point
+    scoringMapShooter.put(9.0, 30.0);//passing point
     scoringMapShooter.put(15.0, 40.0);//passing point
   }
   private static final InterpolatingDoubleTreeMap scoringMapHood = new InterpolatingDoubleTreeMap();
@@ -77,8 +77,8 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
     scoringMapHood.put(4.3, 4.0);
     scoringMapHood.put(4.8, 4.09);
     scoringMapHood.put(5.3, 4.0);//was 4.5
-    scoringMapHood.put(5.7,4.75);
-    scoringMapHood.put(7.0, 7.0);//passing point
+    scoringMapHood.put(5.7,7.0);//passing point
+    scoringMapHood.put(9.0, 7.0);//passing point
     scoringMapHood.put(15.0, 7.0);//passing point
   }
   private static final InterpolatingDoubleTreeMap scoringMapTOF = new InterpolatingDoubleTreeMap();
@@ -90,9 +90,9 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
     scoringMapTOF.put(3.8, .82+.05);
     scoringMapTOF.put(4.3, .83+.05);
     scoringMapTOF.put(4.8, .75+.05);
-    scoringMapTOF.put(5.3, .87+.05);//start tuning here
-    scoringMapTOF.put(5.7, 1.0);
-    scoringMapTOF.put(7.0, 1.0);//passing point
+    scoringMapTOF.put(5.3, .87+.05);
+    scoringMapTOF.put(5.7, 1.0);//passing point
+    scoringMapTOF.put(9.0, 1.0);//passing point
     scoringMapTOF.put(15.0, 1.0);//passing point
   }
 
@@ -129,7 +129,7 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
       .plus(constants.kg_TurretOffset.k_TurretOffsetPose2d.getTranslation());; 
 
     //grabbing where we want to shot to based on where we are on the field
-    Translation2d goalPosition = calcTargetOnlyHub(state.Pose).getTranslation();
+    Translation2d goalPosition = calcTarget(state.Pose).getTranslation();
 
     // 2. Get target vector 
     //based from turret position and in field relative

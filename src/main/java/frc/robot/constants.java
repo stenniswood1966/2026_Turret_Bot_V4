@@ -49,13 +49,13 @@ public class constants {
 
         //red targets
         public static Pose2d k_HubPose2dRed = new Pose2d(FIELD_LAYOUT.getTagPose(10).get().getX() - Units.inchesToMeters(47/2) ,k_MiddleOfField,null);
-        public static Pose2d k_PassLeftPose2dRed = new Pose2d(k_FieldLength - 1,1,null);
-        public static Pose2d k_PassRightPose2dRed = new Pose2d(k_FieldLength - 1,k_FieldWidth - 1,null);
+        public static Pose2d k_PassLeftPose2dRed = new Pose2d(k_FieldLength - 0,1,null);
+        public static Pose2d k_PassRightPose2dRed = new Pose2d(k_FieldLength - 0,k_FieldWidth - 1,null);
 
         //blue targets
         public static Pose2d k_HubPose2dBlue = new Pose2d(FIELD_LAYOUT.getTagPose(26).get().getX() + Units.inchesToMeters(47/2),k_MiddleOfField,null);
-        public static Pose2d k_PassLeftPose2dBlue = new Pose2d(1,k_FieldWidth - 1,null);
-        public static Pose2d k_PassRightPose2dBlue = new Pose2d(1,1,null);
+        public static Pose2d k_PassLeftPose2dBlue = new Pose2d(0,k_FieldWidth - 1,null);
+        public static Pose2d k_PassRightPose2dBlue = new Pose2d(0,1,null);
 
         //red and blue reset points
         public static Pose2d k_RedResetPoint = new Pose2d(13.18 ,3.99, new Rotation2d(Math.toRadians(180)));

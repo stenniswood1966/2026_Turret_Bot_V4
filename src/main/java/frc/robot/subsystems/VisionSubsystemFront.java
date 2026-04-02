@@ -173,9 +173,9 @@ public class VisionSubsystemFront extends SubsystemBase {
 
   private void resetPoseMethod(){
     if (isAllianceRed() == 1) {
-        drivetrain.resetPose(this.megaTag2.pose);
+        drivetrain.resetPose(constants.kg_TargetsAndField.k_RedResetPoint);
       } else {
-        drivetrain.resetPose(this.megaTag2.pose);
+        drivetrain.resetPose(constants.kg_TargetsAndField.k_BlueResetPoint);
       }
   }
 
