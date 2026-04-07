@@ -55,13 +55,13 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
   //distance, rps (motor land(rotations)), hood angle (motor land(rotations)), and time of flight (seconds)
   private static final InterpolatingDoubleTreeMap scoringMapShooter = new InterpolatingDoubleTreeMap();
   static {
-    scoringMapShooter.put(1.0, 17.0 +1);//distance rps in rps
+    scoringMapShooter.put(1.0, 17.0 +0);//distance rps in rps
     scoringMapShooter.put(2.3, 19.0+0);
     scoringMapShooter.put(2.8, 20.0+0);
     scoringMapShooter.put(3.3, 22.0+1);
     scoringMapShooter.put(3.8, 24.0+1);
     scoringMapShooter.put(4.3, 25.5+1);
-    scoringMapShooter.put(4.8, 29.0+1);
+    scoringMapShooter.put(4.8, 29.0+0);
     scoringMapShooter.put(5.3, 29.75+1);
     scoringMapShooter.put(5.7, 15.0);//passing point
     scoringMapShooter.put(9.0, 30.0);//passing point

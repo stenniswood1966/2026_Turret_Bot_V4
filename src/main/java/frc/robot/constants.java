@@ -322,7 +322,7 @@ public class constants {
         public static NeutralModeValue k_Motor1NeutralModeValue = NeutralModeValue.Brake;
         public static Boolean k_Motor1ForwardSoftLimitEnable = true;
         public static Boolean k_Motor1ReverseSoftLimitEnable = true;
-        public static double k_Motor1ForwardSoftLimitThreshold = 37.292969;
+        public static double k_Motor1ForwardSoftLimitThreshold = 35.453125;
         public static double k_Motor1ReverseSoftLimitThreshold = 0.0;
 
         //amp limits
