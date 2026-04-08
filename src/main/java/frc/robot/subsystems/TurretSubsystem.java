@@ -15,7 +15,10 @@ import com.ctre.phoenix6.BaseStatusSignal;
 import com.ctre.phoenix6.StatusSignal;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.MotionMagicVoltage;
+import com.ctre.phoenix6.controls.PositionVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
+import com.ctre.phoenix6.swerve.SwerveDrivetrain.SwerveDriveState;
+
 import frc.robot.constants;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
@@ -24,7 +27,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class TurretSubsystem extends SubsystemBase {
   private static TalonFX motor1 = new TalonFX(constants.kg_TurretSubsystem.k_Motor1ID, constants.kg_TurretSubsystem.k_Motor1CANBus);
-  private MotionMagicVoltage mmReq = new MotionMagicVoltage(0);
+  private PositionVoltage mmReq = new PositionVoltage(0);
 
   private final StatusSignal<Angle> motor1MotorPosition= motor1.getPosition(false);
   private static Boolean homeFlag = true;
@@ -84,10 +87,10 @@ public class TurretSubsystem extends SubsystemBase {
     }
   }
 
-  public void enablemotionmagic(double targetpos) {
+  public void enablemotionmagic(double targetpos, Double turretVelocityFeedforward) {
     // periodic, run Motion Magi with slot 0 configs,
     if (!killFlag && !homeFlag && !lostPowerFlag) {
-      motor1.setControl(mmReq.withPosition(targetpos).withSlot(0));
+      motor1.setControl(mmReq.withPosition(targetpos).withSlot(0).withVelocity(turretVelocityFeedforward));
     } else {
       //System.out.println("The turret isnt updating!!!!!!!!!!!!!!!!!!");
     }
@@ -117,7 +120,7 @@ public class TurretSubsystem extends SubsystemBase {
   }
 
   public Command setTarget(Supplier<Double> target){
-    return runOnce(() -> enablemotionmagic(target.get()));
+    return runOnce(() -> enablemotionmagic(target.get(), 0.0));
   }
 
   public Command setHome(Boolean state){
@@ -127,7 +130,7 @@ public class TurretSubsystem extends SubsystemBase {
   }
 
   public void setHomeMethod(Boolean state){
-    enablemotionmagic(constants.kg_TurretSubsystem.k_HomePosition);
+    enablemotionmagic(constants.kg_TurretSubsystem.k_HomePosition, 0.0);
     homeFlag = state;
   }
 

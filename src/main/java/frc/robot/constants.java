@@ -184,7 +184,7 @@ public class constants {
         public static NeutralModeValue k_Motor1NeutralModeValue = NeutralModeValue.Brake;
         public static Boolean k_Motor1ForwardSoftLimitEnable = true;
         public static Boolean k_Motor1ReverseSoftLimitEnable = true;
-        public static double k_Motor1ForwardSoftLimitThreshold = 17.009277;//old intake was 16.78
+        public static double k_Motor1ForwardSoftLimitThreshold = 13.203613;//old intake was 16.78
         public static double k_Motor1ReverseSoftLimitThreshold = -.06;
 
         //amp limits
@@ -211,8 +211,8 @@ public class constants {
 
         //Motion Magic Setpoints
         public static double k_InPosition = -.06;
-        public static double k_OutPosition = 17.009277;// old intake was 16.7
-        public static double k_WigglePosition = 5;//was 8
+        public static double k_OutPosition = 13.203613;// old intake was 16.7
+        public static double k_WigglePosition = 4;//was 8
 
         //threshold
         public static Angle k_threshold = Angle.ofRelativeUnits(.05, Revolution);
@@ -337,7 +337,7 @@ public class constants {
         public static double k_Motor1kS = 0.0;//.05
         public static double k_Motor1kV = 0;
         public static double k_Motor1kA = 0;
-        public static double k_Motor1kP = 50;//20
+        public static double k_Motor1kP = 5;//20
         public static double k_Motor1kI = 0;
         public static double k_Motor1kD = 0;
         public static StaticFeedforwardSignValue k_Motor1StaticFeedforwardSign = StaticFeedforwardSignValue.UseClosedLoopSign;

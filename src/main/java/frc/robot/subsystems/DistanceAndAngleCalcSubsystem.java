@@ -195,13 +195,16 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
     double ratio = MathUtil.clamp(targetHorizFromHood / totalVelocity, 0.0, 1.0);
     double adjustedHood = Math.toDegrees(Math.acos(ratio));
 
+    //calcing the feedforward for the turret to keep up with the rotation of the robots
+    double turretVelocityFeedforward=(-drivetrain.getState().Speeds.omegaRadiansPerSecond / (2.0 * Math.PI)) * this.gearRatioTurret;
+
     //comanding the motors to go to the correct positions after converting them into motor units
       //for the turret rotation you have to deal with the fact that on the red side zero theta is not towards the blue driver
       //station wall and that the angle will be different as the bot rotates also you have to deal with the fact that cc is positive
       //on the turret while cc is negative in field space
     this.shootersubsystem.setTargetMethod(() -> adjustedRps);
     this.hoodsubsystem.enablemotionmagic(calcHoodAngleMotorRotations(adjustedHood));
-    this.turretsubsystem.enablemotionmagic(calcTurretAngle((turretAngle.getDegrees() - state.Pose.getRotation().getDegrees()) * -1));
+    this.turretsubsystem.enablemotionmagic(calcTurretAngle((turretAngle.getDegrees() - state.Pose.getRotation().getDegrees()) * -1), turretVelocityFeedforward);
 
     //this just posts to smart dashboard a bunch of numbers for debugging should probably get rid of it before comp
     //for better performace 
