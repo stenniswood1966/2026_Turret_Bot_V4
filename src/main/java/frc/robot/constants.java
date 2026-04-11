@@ -49,13 +49,13 @@ public class constants {
 
         //red targets
         public static Pose2d k_HubPose2dRed = new Pose2d(FIELD_LAYOUT.getTagPose(10).get().getX() - Units.inchesToMeters(47/2) ,k_MiddleOfField,null);
-        public static Pose2d k_PassLeftPose2dRed = new Pose2d(k_FieldLength - 0,1,null);
-        public static Pose2d k_PassRightPose2dRed = new Pose2d(k_FieldLength - 0,k_FieldWidth - 1,null);
+        public static Pose2d k_PassLeftPose2dRed = new Pose2d(k_FieldLength - 0,1.3,null);
+        public static Pose2d k_PassRightPose2dRed = new Pose2d(k_FieldLength - 0,k_FieldWidth - 2,null);
 
         //blue targets
         public static Pose2d k_HubPose2dBlue = new Pose2d(FIELD_LAYOUT.getTagPose(26).get().getX() + Units.inchesToMeters(47/2),k_MiddleOfField,null);
-        public static Pose2d k_PassLeftPose2dBlue = new Pose2d(0,k_FieldWidth - 1,null);
-        public static Pose2d k_PassRightPose2dBlue = new Pose2d(0,1,null);
+        public static Pose2d k_PassLeftPose2dBlue = new Pose2d(0,k_FieldWidth - 1.3,null);
+        public static Pose2d k_PassRightPose2dBlue = new Pose2d(0,2,null);
 
         //red and blue reset points
         public static Pose2d k_RedResetPoint = new Pose2d(13.18 ,3.99, new Rotation2d(Math.toRadians(180)));
@@ -322,8 +322,8 @@ public class constants {
         public static NeutralModeValue k_Motor1NeutralModeValue = NeutralModeValue.Brake;
         public static Boolean k_Motor1ForwardSoftLimitEnable = true;
         public static Boolean k_Motor1ReverseSoftLimitEnable = true;
-        public static double k_Motor1ForwardSoftLimitThreshold = 35.453125;
-        public static double k_Motor1ReverseSoftLimitThreshold = 0.0;
+        public static double k_Motor1ForwardSoftLimitThreshold = 36.490234;
+        public static double k_Motor1ReverseSoftLimitThreshold = -1.278809;
 
         //amp limits
         public static double k_Motor1StatorCurrentLimit = 120;
@@ -337,7 +337,7 @@ public class constants {
         public static double k_Motor1kS = 0.0;//.05
         public static double k_Motor1kV = 0;
         public static double k_Motor1kA = 0;
-        public static double k_Motor1kP = 5;//20
+        public static double k_Motor1kP = 10;//20
         public static double k_Motor1kI = 0;
         public static double k_Motor1kD = 0;
         public static StaticFeedforwardSignValue k_Motor1StaticFeedforwardSign = StaticFeedforwardSignValue.UseClosedLoopSign;
