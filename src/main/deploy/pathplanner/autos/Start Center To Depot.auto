@@ -5,37 +5,31 @@
     "data": {
       "commands": [
         {
-          "type": "path",
-          "data": {
-            "pathName": "Start Left To Left Centerline"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Left Centerline To Start Left"
-          }
-        },
-        {
           "type": "wait",
           "data": {
-            "waitTime": 0.0
+            "waitTime": 0
           }
         },
         {
-          "type": "race",
+          "type": "path",
+          "data": {
+            "pathName": "Start Center To Depot"
+          }
+        },
+        {
+          "type": "parallel",
           "data": {
             "commands": [
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot And Wiggle Low"
+                  "name": "Shoot"
                 }
               },
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 4.0
+                  "waitTime": 5.0
                 }
               }
             ]
@@ -60,7 +54,7 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 4.0
+                  "waitTime": 5.0
                 }
               }
             ]
@@ -76,6 +70,6 @@
     }
   },
   "resetOdom": false,
-  "folder": "Left Autons",
+  "folder": "Special Autons",
   "choreoAuto": false
 }

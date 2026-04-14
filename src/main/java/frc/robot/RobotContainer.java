@@ -223,6 +223,11 @@ public class RobotContainer {
             .alongWith(Commands.waitUntil(t_turretInRange))
             .andThen(intakerotatesubsystem.setInCommand())
             .withName("Intake In"));
+        
+        //wiggle low
+        Button_3.whileTrue(intakerotatesubsystem.wiggleLowCommand()
+            .withName("Wiggle Wiggle Low"))
+            .onFalse(intakerotatesubsystem.setOutCommand());
 
 
         //Kill commands
@@ -298,6 +303,12 @@ public class RobotContainer {
                     .alongWith(Commands.waitUntil(t_feederOn))
                     .andThen(pasubsystem.feedCommand()
                         .alongWith(intakesubsystem.intakeCommand())
+                    .withName("Shooting")));
+        NamedCommands.registerCommand("Shoot And Wiggle Low", feedersubsystem.feedCommand()
+                    .alongWith(Commands.waitUntil(t_feederOn))
+                    .andThen(pasubsystem.feedCommand()
+                        .alongWith(intakesubsystem.intakeCommand())
+                        .alongWith(intakerotatesubsystem.wiggleLowCommand())
                     .withName("Shooting")));
 
         //intake commands

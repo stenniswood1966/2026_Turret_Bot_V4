@@ -205,14 +205,15 @@ public class constants {
         public static GravityTypeValue k_Motor1GravityTypeValue = GravityTypeValue.Arm_Cosine;
 
         //set Motion Magic Settings
-        public static double k_Motor1MotionMagicCruiseVelocity = 30;
-        public static double k_Motor1MotionMagicAcceleration = 30;//was 15
+        public static double k_Motor1MotionMagicCruiseVelocity = 40;
+        public static double k_Motor1MotionMagicAcceleration = 40;//was 15
         public static double k_Motor1MotionMagicJerk = 1600;
 
         //Motion Magic Setpoints
         public static double k_InPosition = -.06;
         public static double k_OutPosition = 13.203613;// old intake was 16.7
         public static double k_WigglePosition = 4;//was 8
+        public static double k_WiggleLowPosition = 9.0;
 
         //threshold
         public static Angle k_threshold = Angle.ofRelativeUnits(.05, Revolution);

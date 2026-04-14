@@ -161,6 +161,28 @@ public class IntakeRotateSubsystem extends SubsystemBase {
     }
   }
 
+  public Command wiggleLowCommand(){
+    return run(() -> wiggleLowMethod());
+  }
+
+  private void wiggleLowMethod(){
+    //if motor is at wiggle position set out position
+    //if motor is at out position set to wiggle position 
+    //if motor is moving dont do anything
+    
+    if (motor1MotorPosition.isNear(Angle.ofRelativeUnits(constants.kg_IntakeRotateSubsystem.k_OutPosition, Rotation), constants.kg_IntakeRotateSubsystem.k_threshold)) {
+      setWiggleLowMethod();
+    } else if(motor1MotorPosition.isNear(Angle.ofRelativeUnits(constants.kg_IntakeRotateSubsystem.k_WiggleLowPosition, Rotation), constants.kg_IntakeRotateSubsystem.k_threshold)) {
+      setOutMethod();
+    }
+  }
+
+  private void setWiggleLowMethod(){
+    if (!killFlag) {
+      enablemotionmagic(constants.kg_IntakeRotateSubsystem.k_WiggleLowPosition);
+    }
+  }
+
   public final Trigger isHardStop = new Trigger(() -> {
     return motor1.getVelocity().getValue().abs(RotationsPerSecond) < 1 &&
       motor1.getTorqueCurrent().getValue().abs(Amps) > 30;
