@@ -7,7 +7,7 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 0
+            "waitTime": 0.0
           }
         },
         {
@@ -17,19 +17,19 @@
           }
         },
         {
-          "type": "parallel",
+          "type": "race",
           "data": {
             "commands": [
               {
                 "type": "named",
                 "data": {
-                  "name": "Shoot"
+                  "name": "Shoot And Wiggle"
                 }
               },
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 5.0
+                  "waitTime": 3.0
                 }
               }
             ]
@@ -39,6 +39,18 @@
           "type": "named",
           "data": {
             "name": "Stop Shoot And Wiggle"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Intake On"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Depot End To Wall"
           }
         },
         {

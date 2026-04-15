@@ -61,11 +61,12 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
     scoringMapShooter.put(3.3, 22.0+1);
     scoringMapShooter.put(3.8, 24.0+1);
     scoringMapShooter.put(4.3, 25.5+0);
-    scoringMapShooter.put(4.8, 29.0+-2);
+    scoringMapShooter.put(4.8, 29.0+-1);
     scoringMapShooter.put(5.4, 29.75+0);
-    scoringMapShooter.put(5.7, 15.0);//passing point
+    scoringMapShooter.put(5.6,29.75+0);
+    scoringMapShooter.put(6.0, 15.0);//passing point
     scoringMapShooter.put(9.0, 30.0);//passing point
-    scoringMapShooter.put(15.0, 38.0);//passing point
+    scoringMapShooter.put(15.0, 36.0);//passing point
   }
   private static final InterpolatingDoubleTreeMap scoringMapHood = new InterpolatingDoubleTreeMap();
   static {
@@ -77,9 +78,10 @@ public class DistanceAndAngleCalcSubsystem extends SubsystemBase {
     scoringMapHood.put(4.3, 4.0);
     scoringMapHood.put(4.8, 4.09);
     scoringMapHood.put(5.4, 4.0);//was 4.5
-    scoringMapHood.put(5.7,7.0);//passing point
+    scoringMapHood.put(5.6,4.0);
+    scoringMapHood.put(6.0,7.0);//passing point
     scoringMapHood.put(9.0, 7.0);//passing point
-    scoringMapHood.put(15.0, 7.0);//passing point
+    scoringMapHood.put(15.0, 6.25);//passing point
   }
   private static final InterpolatingDoubleTreeMap scoringMapTOF = new InterpolatingDoubleTreeMap();
   static {
